@@ -9,7 +9,9 @@ for i in range(0,len(response["cases_time_series"])):
     if response["cases_time_series"][i]["date"] == userinput:
         if int(response["cases_time_series"][i]["dailyconfirmed"]) > 100000:
             print("yes")
+            break
         else:
             print("no")
+            break
 else:
     print("enter valid date")

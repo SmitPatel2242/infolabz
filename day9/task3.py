@@ -1,40 +1,27 @@
-# import pandas as pd
-#
-# #print all data with total greater than 2000
-#
-# file1=pd.read_excel("RESULT1.xlsx")
-# file2=pd.read_excel("RESULT2.xlsx")
-#
-# alldata=pd.concat([file1,file2])
-# total=[]
-# for i in alldata["TOTAL"]:
-#     if i>200:
-#        total.append(i)
-#
-# print(total)
+import xlrd
 
-import pandas as pd
+path = ("mydata.xlsx")
+workbook = xlrd.open_workbook(path)
+sheet = workbook.sheet_by_index(0)
 
-#print all data with total greater than 2000
+row = sheet.nrows
+col = sheet.ncols
+index=0
+flag=0
 
-file1=pd.read_excel("RESULT1.xlsx")
-file2=pd.read_excel("RESULT2.xlsx")
+m_no = int(input("Enter match no : "))
+for i in range(0, row):
+    for j in range(0, col):
+        if m_no == sheet.cell_value(i,0):
+            index = i
+            flag=1
+            break
+if(flag==0):
+    print("Match no is invalid")
+    exit()
 
-alldata=pd.concat([file1,file2])
-name=[]
-total=[]
-s_total=[]
-s_name=[]
-for i in alldata["NAME"]:
-    name.append(i)
+for j in range(1, col):
+    print("Score of ",sheet.cell_value(0,j)," is ",sheet.cell_value(index,j))
 
-for i in alldata["TOTAL"]:
-    total.append(i)
 
-for i in range(0,len(total)):
-    if total[i]>200:
-        s_total.append(total[i])
-        s_name.append(name[i])
 
-for i in range(0,len(s_total)):
-    print(s_name[i]," : ",s_total[i])

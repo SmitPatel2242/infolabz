@@ -1,14 +1,20 @@
+import xlrd
 
-import pandas as pd
+path = ("mydata.xlsx")
+workbook = xlrd.open_workbook(path)
+sheet = workbook.sheet_by_index(0)
 
-#print all students name in alphabatical order
+row = sheet.nrows
+col = sheet.ncols
+flag=0
 
-file1=pd.read_excel("RESULT1.xlsx")
-file2=pd.read_excel("RESULT2.xlsx")
+score = input("Enter Score : ")
+for i in range(1,row):
+    for j in range(1,col):
+        if float(score)==sheet.cell_value(i,j):
+            print("match no : ",sheet.cell_value(i,0))
+            print("Name : ",sheet.cell_value(0,j))
+            flag=1
 
-alldata=pd.concat([file1,file2])
-srno=alldata["SRNO"].tolist()
-alldata=alldata["NAME"].tolist()
-print("SRNO   NAME")
-for i in range(0,len(alldata)):
-    print(srno[i],"    ",alldata[i])
+if flag==0:
+    print("Score not found")

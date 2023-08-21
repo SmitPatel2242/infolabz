@@ -1,13 +1,13 @@
-import cv2
+import pandas as pd
 
-image = cv2.imread("img.webp")
-resizeimage = cv2.resize(image,(500,500))
-blurimage = cv2.GaussianBlur(resizeimage,(5,5),-5)
-grayimage = cv2.cvtColor(resizeimage,cv2.COLOR_BGR2GRAY)
-edges = cv2.Canny(resizeimage,threshold1=100,threshold2=200)
-# cv2.imshow("Image",resizeimage)
-# cv2.imshow("ImageB",blurimage)
-# cv2.imshow("ImageG",grayimage)
-cv2.imshow("ImageE",edges)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+file1 = pd.read_excel("RESULT1.xlsx")
+# print(file1)
+file2 = pd.read_excel("RESULT2.xlsx")
+# print(file2)
+
+alldata = pd.concat([file1,file2])
+# print(alldata)
+
+print(alldata.head(3))
+print(alldata.tail(3))
+print(alldata.sort_values(["TOTAL"]))

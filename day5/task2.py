@@ -29,7 +29,7 @@ countryflag=0
 for i in range(0, len(response["data"])):
     if (response["data"][i]["country"] == country):
         countryflag = 1
-    if (response["data"][i]["country"] == city):
+    if (response["data"][i]["city"] == city):
         cityflag = 1
     if (response["data"][i]["city"] == city and response["data"][i]["country"] == country):
         for j in range(0, len(response["data"][i]["populationCounts"])):
