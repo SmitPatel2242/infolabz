@@ -5,4 +5,5 @@ df = pd.read_csv('orderdata.csv')
 reg = linear_model.LinearRegression()
 
 reg.fit(df[['users','orders','age']].values,df[['amount']])
+# print(df[["users"]])
 print(reg.predict([[1700,3400,23]]))

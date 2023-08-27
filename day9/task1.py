@@ -1,6 +1,6 @@
 import xlrd
 
-path = ("mydata.xlsx")
+path = ("day9/mydata.xlsx")
 workbook = xlrd.open_workbook(path)
 sheet = workbook.sheet_by_index(0)
 

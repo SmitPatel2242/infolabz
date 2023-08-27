@@ -11,3 +11,6 @@ alldata = pd.concat([file1,file2])
 print(alldata.head(3))
 print(alldata.tail(3))
 print(alldata.sort_values(["TOTAL"]))
+
+
+

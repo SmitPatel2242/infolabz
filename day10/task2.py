@@ -7,4 +7,4 @@ file2=pd.read_excel("RESULT2.xlsx")
 
 alldata=pd.concat([file1,file2])
 
-(alldata.sort_values("TOTAL",ascending=False)).to_excel("matrix.xlsx")
+(alldata.sort_values("TOTAL",ascending=False)).to_excel("matrix.xlsx",index=False)
